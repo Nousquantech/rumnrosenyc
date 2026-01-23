@@ -1,0 +1,21 @@
+id,name,category,price,sizes,colors,material,season,style,description,image_url
+DN001,Slim Fit Denim Jacket,Jacket,120,"S,M,L,XL","Blue, Black",Denim,All,Casual,Classic slim denim jacket,url_to_image_1
+DN002,Relaxed Fit Jeans,Pants,80,"28,30,32,34","Blue, Light Blue",Denim,All,Casual,Comfortable relaxed fit denim jeans,url_to_image_2
+DN003,High Waist Denim Skirt,Skirt,65,"S,M,L",Blue,Denim,Spring,Casual,High waist skirt with button front,url_to_image_3
+DN004,Denim Overalls,Overalls,95,"S,M,L,XL","Blue, Black",Denim,All,Casual,Adjustable strap denim overalls,url_to_image_4
+DN005,Denim Shirt,Shirt,70,"S,M,L,XL","Light Blue, White",Denim,All,Office/Casual,Classic denim shirt,url_to_image_5
+DN006,Skinny Jeans,Pants,85,"28,30,32,34","Blue, Dark Blue",Denim,All,Casual,Stretch skinny denim jeans,url_to_image_6
+DN007,Denim Mini Skirt,Skirt,60,"S,M,L","Blue, Black",Denim,Summer,Casual,Stylish mini skirt,url_to_image_7
+DN008,Cropped Denim Jacket,Jacket,110,"S,M,L,XL","Blue, Black",Denim,Spring,Casual,"Cropped fit, trendy denim jacket",url_to_image_8
+DN009,Bootcut Jeans,Pants,90,"28,30,32,34","Blue, Light Blue",Denim,Fall,Casual,Classic bootcut denim jeans,url_to_image_9
+DN010,Denim Cargo Pants,Pants,95,"28,30,32,34","Blue, Black",Denim,Fall,Casual,Cargo style with pockets,url_to_image_10
+DN011,Denim Dress,Dress,100,"S,M,L","Blue, Dark Blue",Denim,Summer,Casual,Casual A-line denim dress,url_to_image_11
+DN012,Oversized Denim Shirt,Shirt,75,"S,M,L,XL","Blue, Light Blue",Denim,All,Casual,Comfortable oversized denim shirt,url_to_image_12
+DN013,Distressed Jeans,Pants,95,"28,30,32,34",Blue,Denim,All,Casual,Trendy distressed denim jeans,url_to_image_13
+DN014,Denim Pencil Skirt,Skirt,70,"S,M,L",Dark Blue,Denim,Office,Office,Sleek pencil skirt,url_to_image_14
+DN015,Denim Vest,Vest,65,"S,M,L","Blue, Black",Denim,Summer,Casual,Sleeveless denim vest,url_to_image_15
+DN016,Flared Denim Pants,Pants,90,"28,30,32,34","Blue, Light Blue",Denim,All,Casual,Retro flared leg denim pants,url_to_image_16
+DN017,Denim Hoodie Jacket,Jacket,115,"S,M,L,XL","Blue, Dark Blue",Denim/Cotton,Fall,Casual,Hoodie style denim jacket,url_to_image_17
+DN018,Denim Shorts,Shorts,55,"S,M,L","Blue, Light Blue",Denim,Summer,Casual,Comfortable summer denim shorts,url_to_image_18
+DN019,Denim Tunic,Top,65,"S,M,L","Blue, White",Denim,Spring,Casual,Long denim tunic top,url_to_image_19
+DN020,Classic Denim Jacket,Jacket,120,"S,M,L,XL","Blue, Black",Denim,All,Casual,Timeless classic denim jacket,url_to_image_20
