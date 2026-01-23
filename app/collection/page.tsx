@@ -18,9 +18,9 @@ export default function CollectionPage() {
 
     useEffect(() => {
         // Fetch collection products
-        axios.get("/api/products")
+        axios.get("http://localhost:8000/products")
             .then(res => setProducts(res.data))
-            .catch(err => console.error(err));
+            .catch(err => console.error("Error fetching products:", err));
     }, []);
 
     return (

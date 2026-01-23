@@ -14,8 +14,9 @@
 /coverage
 
 # backend
-/backend/
-/StartAssets/
+/backend
+/StartAssets
+/venv
 # next.js
 /.next
 /out
@@ -38,6 +39,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+.requirements.txt
 
 # typescript
 *.tsbuildinfo

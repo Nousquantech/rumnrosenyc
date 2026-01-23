@@ -35,15 +35,19 @@ const ChatWidget = () => {
   }, []);
 
   const sendSystemMessage = async (event: string) => {
-    const res = await axios.post("http://localhost:8000/chat", {
-      session_id: sessionId,
-      event,
-    });
+    try {
+      const res = await axios.post("http://localhost:8000/chat", {
+        session_id: sessionId,
+        event,
+      });
 
-    setMessages((prev) => [
-      ...prev,
-      { role: "assistant", content: res.data.message },
-    ]);
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: res.data.message },
+      ]);
+    } catch (error) {
+      console.error("Chat error:", error);
+    }
   };
 
   const sendMessage = async () => {
@@ -53,18 +57,22 @@ const ChatWidget = () => {
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
 
-    const res = await axios.post("http://localhost:8000/chat", {
-      session_id: sessionId,
-      query: input,
-    });
+    try {
+      const res = await axios.post("http://localhost:8000/chat", {
+        session_id: sessionId,
+        query: input,
+      });
 
-    const assistantMsg: Message = {
-      role: "assistant",
-      content: res.data.message,
-      products: res.data.recommended_products || [],
-    };
+      const assistantMsg: Message = {
+        role: "assistant",
+        content: res.data.message,
+        products: res.data.recommended_products || [],
+      };
 
-    setMessages((prev) => [...prev, assistantMsg]);
+      setMessages((prev) => [...prev, assistantMsg]);
+    } catch (error) {
+      console.error("Chat error:", error);
+    }
   };
 
   return (
@@ -111,7 +119,7 @@ const ChatWidget = () => {
                   {msg.role === "assistant" && msg.products && msg.products.length > 0 && (
                     <div className="space-y-2">
                       {msg.products.map((product) => (
-                        <ProductCard key={product.id} product={product} />
+                        <ProductCard key={product.name} product={product} />
                       ))}
                     </div>
                   )}
