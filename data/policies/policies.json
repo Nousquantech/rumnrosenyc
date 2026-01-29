@@ -1,0 +1,22 @@
+[
+  {
+    "category": "Shipping",
+    "text": "We process orders within 1–2 business days. Standard shipping typically arrives in 3–7 business days after dispatch, depending on your location. You’ll receive a confirmation email with tracking once your order ships. Shipping costs (if any) are calculated at checkout."
+  },
+  {
+    "category": "Returns",
+    "text": "Returns are accepted within 30 days of delivery as long as items are unworn, unwashed, and in original condition with tags attached. To start a return, use the instructions included with your order. Refunds are issued to the original payment method after the return is received and inspected."
+  },
+  {
+    "category": "Sizing",
+    "text": "Sizing can vary by style and fabric. Each product lists available sizes and fit notes where applicable. If you’re between sizes, consider how you prefer to wear the item (fitted vs. relaxed) and review the listed materials for stretch. For additional help, contact support with the product name and your preferred fit."
+  },
+  {
+    "category": "Exchanges",
+    "text": "If you need a different size or color, we recommend placing a new order for the desired item and returning the original item for a refund. This helps ensure the replacement ships as quickly as possible. If the item you want is out of stock, contact support and we’ll do our best to help."
+  },
+  {
+    "category": "Loyalty/Discounts",
+    "text": "From time to time we may offer promotions or discount codes. Discount codes must be applied at checkout and cannot be added retroactively. Unless stated otherwise, promotions cannot be combined. Loyalty perks (if offered) apply to eligible purchases as described in the promotion details."
+  }
+]
