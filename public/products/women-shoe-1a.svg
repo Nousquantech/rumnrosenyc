@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" fill="#f4f4f5" />
+  <path d="M160 660 C280 520, 420 520, 640 620 L640 700 C420 760, 280 760, 160 720 Z" fill="#ffffff" opacity="0.7" />
+  <text x="400" y="520" font-family="ui-sans-serif, system-ui" font-size="28" text-anchor="middle" fill="#18181b" opacity="0.7">
+    WOMEN · SHOE
+  </text>
+</svg>
