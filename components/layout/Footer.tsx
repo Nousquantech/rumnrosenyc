@@ -6,7 +6,7 @@ export function Footer() {
     return (
         <footer className="border-t border-foreground/10">
             <Container className="py-10">
-                <div className="grid gap-10 md:grid-cols-3">
+                <div className="grid gap-10 md:grid-cols-4">
                     <div className="space-y-3">
                         <div className="text-sm tracking-[0.25em]">RUMNROSE</div>
                         <p className="text-sm text-foreground/70">
@@ -40,6 +40,14 @@ export function Footer() {
                             </Link>
                             <Link className="hover:underline underline-offset-4" href="/search">
                                 Search
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="space-y-3 text-sm">
+                        <div className="text-xs tracking-[0.2em] text-foreground/60">ABOUT</div>
+                        <div className="grid gap-2">
+                            <Link className="hover:underline underline-offset-4" href="/ourstory">
+                                OUR STORY
                             </Link>
                         </div>
                     </div>

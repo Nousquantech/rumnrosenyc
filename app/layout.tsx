@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google";
 import "../styles/globals.css";
-
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,10 +23,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "RumnRose — Luxury-inspired Storefront",
+    default: "RumnRose Official Site",
     template: "%s · RumnRose",
   },
-  description: "A luxury-inspired e-commerce demo built with Next.js.",
+  description:
+    "The Official Rum&Rose Online Store. Craftsmanship from New York. Discover the latest collections for women, men and home.",
 };
 
 export default function RootLayout({
@@ -31,7 +38,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Header />
@@ -41,4 +48,3 @@ export default function RootLayout({
     </html>
   );
 }
-
