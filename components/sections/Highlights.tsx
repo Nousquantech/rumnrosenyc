@@ -5,7 +5,7 @@ import { getProducts } from "@/lib/data";
 
 const Highlights = async () => {
     const featured = await getProducts({ tag: "featured" });
-    const onSale = featured.filter((p) => p.onSale);
+    const onSale = featured.filter((p) => p.sale);
 
     return (
         <section className="border-t border-foreground/10">
