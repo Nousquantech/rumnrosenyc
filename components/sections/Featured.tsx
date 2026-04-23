@@ -3,13 +3,13 @@
 import Link from "next/link";
 import { getCollections, getProducts } from "@/lib/data";
 import { Container } from "@/components/ui/Container";
-import { Product } from "@/lib/types";
+import { Collection, Product } from "@/lib/types";
 import { useState, useEffect } from "react";
 
 const Featured = () => {
     const [selectedFilter, setSelectedFilter] = useState("ALL");
     const [showAll, setShowAll] = useState(false);
-    const [collections, setCollections] = useState(null);
+    const [collections, setCollections] = useState<Collection[] | null>(null);
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -123,51 +123,3 @@ export default Featured;
 
 
 
-// import Link from "next/link";
-// import { Container } from "@/components/ui/Container";
-// import { getCollections, getProducts } from "@/lib/data";
-
-// const Featured = async () => {
-//     const [collections] = await Promise.all([
-//         getProducts({ tag: "featured" }),
-//         getCollections(),
-//     ]);
-
-//     return (
-//         <section>
-//             <Container className="py-16">
-//                 <div className="flex items-end justify-between gap-6">
-//                     <div className="space-y-3">
-//                         <div className="text-xs tracking-[0.3em] text-foreground/60">
-//                             FEATURED
-//                         </div>
-//                         <h2 className="text-3xl tracking-tight md:text-4xl">Collections</h2>
-//                     </div>
-//                     <Link className="text-sm underline underline-offset-4" href="/collections">
-//                         View all
-//                     </Link>
-//                 </div>
-
-//                 <div className="mt-10 grid gap-6 md:grid-cols-2">
-//                     {collections.slice(0, 2).map((c) => (
-//                         <Link
-//                             key={c.slug}
-//                             href={`/collections/${c.slug}`}
-//                             className="group rounded-3xl border border-foreground/10 p-10 transition-colors hover:border-foreground/20"
-//                         >
-//                             <div className="text-xs tracking-[0.2em] text-foreground/60">{c.season}</div>
-//                             <div className="mt-3 text-2xl tracking-tight">{c.name}</div>
-//                             <div className="mt-2 max-w-prose text-sm text-foreground/70">
-//                                 {c.description}
-//                             </div>
-//                             <div className="mt-8 text-sm underline underline-offset-4 opacity-0 transition-opacity group-hover:opacity-100">
-//                                 View collection
-//                             </div>
-//                         </Link>
-//                     ))}
-//                 </div>
-//             </Container>
-//         </section>
-//     )
-// }
-// export default Featured
