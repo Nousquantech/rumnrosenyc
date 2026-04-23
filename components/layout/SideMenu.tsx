@@ -23,58 +23,17 @@ const NAV_ITEMS: TopItem[] = [
             {
                 label: "Ready to Wear",
                 links: [
-                    { label: "New Arrivals", href: "/women/new-arrivals" },
-                    { label: "Dresses", href: "/women/dresses" },
-                    { label: "Tops & Shirts", href: "/women/tops" },
-                    { label: "Pants & Shorts", href: "/women/pants" },
-                    { label: "Denim", href: "/women/denim" },
-                    { label: "Outerwear", href: "/women/outerwear" },
+                    { label: "DRESSES", href: "/women/dresses" },
+                    { label: "SKIRTS", href: "/women/skirts" },
+                    { label: "PANTS", href: "/women/pants" },
+                    { label: "VESTS", href: "/women/vests" },
                 ],
             },
-            {
-                label: "Accessories",
-                links: [
-                    { label: "Bags", href: "/women/bags" },
-                    { label: "Shoes", href: "/women/shoes" },
-                    { label: "Belts", href: "/women/belts" },
-                ],
-            },
+
         ],
     },
-    {
-        label: "Men",
-        groups: [
-            {
-                label: "Ready to Wear",
-                links: [
-                    { label: "New Arrivals", href: "/men/new-arrivals" },
-                    { label: "Shirts", href: "/men/shirts" },
-                    { label: "Pants", href: "/men/pants" },
-                    { label: "Denim", href: "/men/denim" },
-                    { label: "Outerwear", href: "/men/outerwear" },
-                ],
-            },
-            {
-                label: "Accessories",
-                links: [
-                    { label: "Bags", href: "/men/bags" },
-                    { label: "Shoes", href: "/men/shoes" },
-                ],
-            },
-        ],
-    },
-    {
-        label: "Collections",
-        links: [
-            { label: "Spring 2025", href: "/collections/spring-2025" },
-            { label: "Summer 2025", href: "/collections/summer-2025" },
-            { label: "View All", href: "/collections" },
-        ],
-    },
-    {
-        label: "Our Story",
-        href: "/ourstory",
-    },
+
+
 ];
 
 export function SideMenu() {
@@ -224,14 +183,6 @@ export function SideMenu() {
                             style={{ color: "var(--rr-ink)" }}
                         >
                             Search
-                        </Link>
-                        <Link
-                            href="/wishlist"
-                            onClick={close}
-                            className="block text-xs tracking-[0.18em] uppercase opacity-50 hover:opacity-100 transition-opacity"
-                            style={{ color: "var(--rr-ink)" }}
-                        >
-                            Wishlist
                         </Link>
                         <Link
                             href="/cart"

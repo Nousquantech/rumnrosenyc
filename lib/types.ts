@@ -7,6 +7,8 @@ export type Product = {
   category: string;
   gender: Gender;
   price: number;
+  old: number;
+  sale: boolean;
   images: string[];
   description: string;
   tags?: Array<"new" | "featured">;

@@ -1,155 +1,10 @@
-// "use client";
-
-// import Link from "next/link";
-// import Image from "next/image";
-// import { usePathname } from "next/navigation";
-// import { useEffect, useMemo, useState } from "react";
-
-// import { MegaMenu } from "@/components/layout/MegaMenu";
-// import { Container } from "@/components/ui/Container";
-
-// export function Header() {
-//     const pathname = usePathname();
-//     const isHome = pathname === "/";
-
-//     const [scrolled, setScrolled] = useState(false);
-
-//     useEffect(() => {
-//         const onScroll = () => setScrolled(window.scrollY > 16);
-//         onScroll();
-//         window.addEventListener("scroll", onScroll, { passive: true });
-//         return () => window.removeEventListener("scroll", onScroll);
-//     }, []);
-
-//     const megaMenuGroups = useMemo(
-//         () => [
-//             {
-//                 title: "Women",
-//                 links: [
-//                     { label: "New Arrivals", href: "/women/new-arrivals" },
-//                     { label: "Bags", href: "/women/bags" },
-//                     { label: "Shoes", href: "/women/shoes" },
-//                     { label: "Accessories", href: "/women/accessories" },
-//                 ],
-//             },
-//             {
-//                 title: "Men",
-//                 links: [
-//                     { label: "Bags", href: "/men/bags" },
-//                     { label: "Shoes", href: "/men/shoes" },
-//                     { label: "Accessories", href: "/men/accessories" },
-//                 ],
-//             },
-//             {
-//                 title: "Home",
-//                 links: [{ label: "Shop Home", href: "/home" }],
-//             },
-//         ],
-//         []
-//     );
-//     const megaMenuGroupsWomen = useMemo(
-//         () => [
-//             {
-//                 title: "Women",
-//                 links: [
-//                     { label: "New Arrivals", href: "/women/new-arrivals" },
-//                     { label: "Bags", href: "/women/bags" },
-//                     { label: "Shoes", href: "/women/shoes" },
-//                     { label: "Accessories", href: "/women/accessories" },
-//                 ],
-//             },
-//         ],
-//         []
-//     );
-
-//     const solid = !isHome || scrolled;
-
-//     return (
-//         <header
-//             className={
-//                 "sticky top-0 z-50 transition-colors " +
-//                 (solid
-//                     ? "border-b border-foreground/10 bg-background/95 backdrop-blur"
-//                     : "bg-transparent")
-//             }
-//         >
-//             <Container className="h-16 flex items-center justify-between">
-//                 <div className="flex items-center gap-10">
-//                     <Link
-//                         href="/"
-//                         className="flex items-center text-foreground"
-//                         aria-label="Home"
-//                     >
-//                         <Image
-//                             src="/LongLogo.png"
-//                             alt="RUMNROSE"
-//                             width={160}
-//                             height={24}
-
-//                             priority
-//                             className="h-6 w-auto"
-//                         />
-//                     </Link>
-
-//                     <nav className="hidden items-center gap-8 text-sm md:flex">
-//                         <div className="relative group">
-//                             <button
-//                                 type="button"
-//                                 className="text-sm transition-colors hover:text-foreground/70"
-//                                 aria-haspopup="true"
-//                             >
-//                                 Shop
-//                             </button>
-//                             <MegaMenu groups={megaMenuGroups} />
-//                         </div>
-//                         <div className="relative group">
-//                             <button
-//                                 type="button"
-//                                 className="text-sm transition-colors hover:text-foreground/70"
-//                                 aria-haspopup="true"
-//                             >
-//                                 Women
-//                             </button>
-//                             <MegaMenu groups={megaMenuGroupsWomen} />
-//                         </div>
-
-//                         {/* <Link className="transition-colors hover:text-foreground/70" href="/women">
-//                             Women
-//                             <MegaMenu groups={megaMenuGroupsWomen} />
-//                         </Link> */}
-//                         <Link className="transition-colors hover:text-foreground/70" href="/men">
-//                             Men
-//                         </Link>
-//                         <Link className="transition-colors hover:text-foreground/70" href="/collections">
-//                             Collections
-//                         </Link>
-//                     </nav>
-//                 </div>
-
-//                 <nav className="flex items-center gap-5 text-sm">
-//                     <Link className="transition-colors hover:text-foreground/70" href="/search">
-//                         Search
-//                     </Link>
-//                     <Link className="transition-colors hover:text-foreground/70" href="/wishlist">
-//                         Wishlist
-//                     </Link>
-//                     <Link className="transition-colors hover:text-foreground/70" href="/cart">
-//                         Cart
-//                     </Link>
-//                 </nav>
-//             </Container>
-//         </header>
-//     );
-// }
-
 "use client";
 
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { MegaMenu } from "./MegaMenu";
 import { SideMenu } from "@/components/layout/SideMenu";
 import { Container } from "@/components/ui/Container";
 
@@ -158,64 +13,59 @@ export function Header() {
     const isHome = pathname === "/";
 
     const [scrolled, setScrolled] = useState(false);
-    const [openDesktopMenu, setOpenDesktopMenu] = useState<null | "women" | "men">(null);
+    const [visible, setVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+
+    // useEffect(() => {
+    //     const onScroll = () => setScrolled(window.scrollY > 16);
+    //     onScroll();
+    //     window.addEventListener("scroll", onScroll, { passive: true });
+    //     return () => window.removeEventListener("scroll", onScroll);
+    // }, []);
 
     useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 16);
-        onScroll();
-        window.addEventListener("scroll", onScroll, { passive: true });
-        return () => window.removeEventListener("scroll", onScroll);
-    }, []);
+        const onScroll = () => {
+            const currentScrollY = window.scrollY;
 
-    useEffect(() => {
-        if (!openDesktopMenu) return;
+            // always show at top
+            if (currentScrollY < 10) {
+                setVisible(true);
+                setLastScrollY(currentScrollY);
+                return;
+            }
 
-        const onKeyDown = (event: KeyboardEvent) => {
-            if (event.key === "Escape") setOpenDesktopMenu(null);
+            // scrolling down → hide
+            if (currentScrollY > lastScrollY) {
+                setVisible(false);
+            }
+            // scrolling up → show
+            else {
+                setVisible(true);
+            }
+
+            setLastScrollY(currentScrollY);
         };
 
-        window.addEventListener("keydown", onKeyDown);
-        return () => window.removeEventListener("keydown", onKeyDown);
-    }, [openDesktopMenu]);
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, [lastScrollY]);
 
-    const womenMenu = useMemo(
-        () => [
-            {
-                title: "Women",
-                links: [
-                    { label: "New Arrivals", href: "/women/new-arrivals" },
-                    { label: "Bags", href: "/women/bags" },
-                    { label: "Shoes", href: "/women/shoes" },
-                    { label: "Accessories", href: "/women/accessories" },
-                ],
-            },
-        ],
-        []
-    );
-
-    const menMenu = useMemo(
-        () => [
-            {
-                title: "Men",
-                links: [
-                    { label: "Bags", href: "/men/bags" },
-                    { label: "Shoes", href: "/men/shoes" },
-                    { label: "Accessories", href: "/men/accessories" },
-                ],
-            },
-        ],
-        []
-    );
 
     const solid = !isHome || scrolled;
 
     return (
         <header
+            // className={
+            //     "sticky top-0 z-50 transition-colors border-b border-gray-200" +
+            //     (solid
+            //         ? "border-b border-gray-200 bg-white/75"
+            //         : "bg-white/50")
+            // }
             className={
-                "sticky top-0 z-50 transition-colors " +
-                (solid
-                    ? "border-b border-foreground/10 bg-background/95"
-                    : "bg-transparent")
+                "sticky top-0 z-50 border-b border-gray-200 transition-transform duration-300 " +
+                (visible ? "translate-y-0" : "-translate-y-full") +
+                (solid ? " bg-white" : " bg-white")
             }
         >
             <Container className="relative h-16 flex items-center justify-between">
@@ -227,64 +77,35 @@ export function Header() {
                     </div>
 
                     <nav className="hidden items-center gap-8 text-sm md:flex">
-                        <div className="relative">
-                            <button
-                                type="button"
-                                onClick={() =>
-                                    setOpenDesktopMenu((current) =>
-                                        current === "women" ? null : "women"
-                                    )
-                                }
-                                className="text-sm font-light tracking-[0.08em] transition-opacity hover:opacity-60"
-                                style={{ color: "var(--rr-ink)" }}
-                                aria-haspopup="true"
-                                aria-expanded={openDesktopMenu === "women"}
-                            >
-                                Women
-                            </button>
-                            <MegaMenu
-                                groups={womenMenu}
-                                open={openDesktopMenu === "women"}
-                                onClose={() => setOpenDesktopMenu(null)}
-                            />
-                        </div>
-
-                        <div className="relative">
-                            <button
-                                type="button"
-                                onClick={() =>
-                                    setOpenDesktopMenu((current) =>
-                                        current === "men" ? null : "men"
-                                    )
-                                }
-                                className="text-sm font-light tracking-[0.08em] transition-opacity hover:opacity-60"
-                                style={{ color: "var(--rr-ink)" }}
-                                aria-haspopup="true"
-                                aria-expanded={openDesktopMenu === "men"}
-                            >
-                                Men
-                            </button>
-                            <MegaMenu
-                                groups={menMenu}
-                                open={openDesktopMenu === "men"}
-                                onClose={() => setOpenDesktopMenu(null)}
-                            />
-                        </div>
-
                         <Link
                             className="text-sm font-light tracking-[0.08em] transition-opacity hover:opacity-60"
                             style={{ color: "var(--rr-ink)" }}
-                            href="/collections"
+                            href="/women/dresses"
                         >
-                            Collections
+                            DRESSES
+                        </Link>
+                        <Link
+                            className="text-sm font-light tracking-[0.08em] transition-opacity hover:opacity-60"
+                            style={{ color: "var(--rr-ink)" }}
+                            href="/women/skirts"
+                        >
+                            SKIRTS
                         </Link>
 
                         <Link
                             className="text-sm font-light tracking-[0.08em] transition-opacity hover:opacity-60"
                             style={{ color: "var(--rr-ink)" }}
-                            href="/ourstory"
+                            href="/women/pants"
                         >
-                            Our Story
+                            PANTS
+                        </Link>
+
+                        <Link
+                            className="text-sm font-light tracking-[0.08em] transition-opacity hover:opacity-60"
+                            style={{ color: "var(--rr-ink)" }}
+                            href="/women/vests"
+                        >
+                            VESTS
                         </Link>
                     </nav>
                 </div>
@@ -313,13 +134,6 @@ export function Header() {
                         href="/search"
                     >
                         Search
-                    </Link>
-                    <Link
-                        className="transition-colors hover:opacity-60 hidden md:block"
-                        style={{ color: "var(--rr-ink)" }}
-                        href="/wishlist"
-                    >
-                        Wishlist
                     </Link>
                     <Link
                         className="transition-colors hover:opacity-60"
