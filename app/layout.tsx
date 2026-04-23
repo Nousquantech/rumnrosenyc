@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google";
 import "../styles/globals.css";
 import { Footer } from "@/components/layout/Footer";
@@ -40,6 +41,21 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} h-full antialiased`}
     >
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=GT-P3HV845J"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'GT-P3HV845J');
+          `}
+        </Script>
+      </head>
+
       <body className="min-h-full flex flex-col">
         <Header />
         <main className="flex-1">{children}</main>
